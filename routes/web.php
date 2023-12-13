@@ -15,7 +15,8 @@ use App\Http\Controllers\OrgController;
 */
 
 Route::get('/', [OrgController::class, 'login'])->name('login');
+Route::get('/login', [OrgController::class, 'check_login']);
 
-Route::group(['prefix' => 'organizer', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'organizer', 'middleware' => 'auth'], function () {
     Route::get('/index', [OrgController::class, 'index'])->name('index');
 });

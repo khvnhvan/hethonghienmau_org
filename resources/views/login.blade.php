@@ -18,6 +18,7 @@
                 <div style="width: 80%;">
                     <h1 style="line-height: 120%;">ĐĂNG NHẬP VÀO <br>TRANG QUẢN LÝ CỦA TỔ CHỨC</h1>
                     <form action="" method="POST">
+                        @csrf
                         <label for="id_num">Mã số doanh nghiệp</label><br>
                         <input type="text" class="id_num" name="TenTC"><br><br>
                         <label for="password">Mật khẩu</label><br>

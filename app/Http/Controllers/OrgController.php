@@ -15,8 +15,24 @@ class OrgController extends Controller
         return view('dashboard');
     }
 
-    public function login(){
+    public function login()
+    {
         return view('login');
+    }
+
+    public function check_login()
+    {
+        request()->validate([
+            'MaTC' => 'required|unique|exists:tochuc',
+            'password' => 'required',
+        ]);
+
+        $data = request()->all('MaTC', 'password');
+
+        if (auth()->attempt($data)) {
+            return redirect()->route('dashboard');
+        }
+        return redirect()->back();
     }
     /**
      * Show the form for creating a new resource.
